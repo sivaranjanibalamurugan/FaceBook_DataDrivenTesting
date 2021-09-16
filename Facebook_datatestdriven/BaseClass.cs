@@ -3,15 +3,9 @@
  * created by = SIVA RANJANI B
  * created on = 12/09/21
  */
-using Microsoft.Extensions.Options;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Facebook_datatestdriven
 {
@@ -27,14 +21,21 @@ namespace Facebook_datatestdriven
 
             //local selenium webdriver
             driver = new ChromeDriver();
-            driver.Url = "https://www.facebook.com/";
             driver.Manage().Window.Maximize();
+            driver.Url = "https://www.facebook.com/";
             System.Threading.Thread.Sleep(200);
+            Takescreenshot();
         }
         [TearDown]
         public void TearDown()
         {
             driver.Quit();
+        }
+        public static void Takescreenshot()
+        {
+            ITakesScreenshot screenshotDriver = driver as ITakesScreenshot;
+            Screenshot screenshot = screenshotDriver.GetScreenshot();
+            screenshot.SaveAsFile(@"C:\Users\sivaranjani.b\source\repos\Facebook_datatestdriven\Facebook_datatestdriven\Screenshot\text1.png");
         }
     }
 }

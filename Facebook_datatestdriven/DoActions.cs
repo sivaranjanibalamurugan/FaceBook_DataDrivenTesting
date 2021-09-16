@@ -3,18 +3,13 @@
  * created by = SIVA RANJANI B
  * created on = 12/09/21
  */
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Facebook_datatestdriven
 {
-   public  class DoActions
+    public  class DoActions
    {
         public static void AssertAfterLaunching(IWebDriver driver)
         {

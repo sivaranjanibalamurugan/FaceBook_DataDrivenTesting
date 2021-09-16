@@ -3,7 +3,7 @@
  * created by = SIVA RANJANI B
  * created on = 12/09/21
  */
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -26,7 +26,8 @@ namespace Facebook_datatestdriven.Resources
         public void ReadingDataFromExcelFile()
         {
             ExcelOperations.PopulateInCollection(@"C:\Users\sivaranjani.b\source\repos\Facebook_datatestdriven\Facebook_datatestdriven\Resources\Facebook_datadriventesting.xlsx");
-            
+            System.Threading.Thread.Sleep(3000);
+            Takescreenshot();
         }
         [Test]
 
@@ -37,7 +38,7 @@ namespace Facebook_datatestdriven.Resources
             // Wait for the page to load
              wait.Until(d => ((IJavaScriptExecutor)d).ExecuteScript("return document.readyState").Equals("complete"));
             Console.WriteLine("Login Successful");
-
+            //Takescreenshot();
         }
 
     }
