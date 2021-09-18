@@ -31,5 +31,14 @@ namespace Facebook_datatestdriven
         [FindsBy(How = How.Name, Using = "login")]
         [CacheLookup]
         public IWebElement loginBt;
+
+        /*[FindsBy(How = How.XPath, Using = "(//span[@class='l9j0dhe7'])")]
+        [CacheLookup]
+        public IWebElement Home;*/
+
+        /* [FindsBy(How = How.XPath, Using = "(//span[@text()='Photo/Video']")]*/
+        /*[FindsBy(How = How.XPath, Using = "(//span[@class='a8c37x1j ni8dbmo4 stjgntxs l9j0dhe7 ltmttdrg g0qnabr5'])")]
+        [CacheLookup]
+        public IWebElement photo;*/
     }
 }

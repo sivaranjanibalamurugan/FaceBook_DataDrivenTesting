@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace Facebook_datatestdriven
 {
-    public  class DoActions
+    public  class DoActions:BaseClass
    {
         public static void AssertAfterLaunching(IWebDriver driver)
         {
@@ -18,18 +18,24 @@ namespace Facebook_datatestdriven
             Assert.AreEqual(title1, title);
         }
       
-        public void LoginToFaceBook(IWebDriver driver)
+        public static void LoginToFaceBook(IWebDriver driver)
         {
+            LoginPage login = new LoginPage(driver);
             Debug.WriteLine("**");
             //Storing the data in the excel and run in it various dataset
-            driver.FindElement(By.Name("email")).SendKeys(ExcelOperations.ReadData(1, "email"));
-            System.Threading.Thread.Sleep(3000);
+            ExcelOperations.PopulateInCollection(@"C:\Users\sivaranjani.b\source\repos\Facebook_datatestdriven\Facebook_datatestdriven\Resources\Facebook_datadriventesting.xlsx");
+            login.email.SendKeys(ExcelOperations.ReadData(1, "email"));
+            System.Threading.Thread.Sleep(2000);
 
-            driver.FindElement(By.Id("pass")).SendKeys(ExcelOperations.ReadData(1, "password"));
-            System.Threading.Thread.Sleep(3000);
+            login.password.SendKeys(ExcelOperations.ReadData(1, "password"));
+            System.Threading.Thread.Sleep(2000);
 
-            driver.FindElement(By.Name("login")).Click();
-            System.Threading.Thread.Sleep(10000);
+            login.loginBt.Click();
+            System.Threading.Thread.Sleep(2000);
+           /* login.Home.Click();
+            System.Threading.Thread.Sleep(2000);*/
+          /*  login.photo.Click();
+            System.Threading.Thread.Sleep(2000);*/
         }
     }
 }

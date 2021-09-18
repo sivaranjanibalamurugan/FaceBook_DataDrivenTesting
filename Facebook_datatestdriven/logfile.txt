@@ -1,0 +1,6 @@
+2021-09-18 15:45:12,892 INFO Entering Setup
+2021-09-18 15:45:18,079 DEBUG navigating to url
+2021-09-18 15:45:18,081 INFO Exiting setup
+2021-09-18 15:50:45,542 INFO Entering Setup
+2021-09-18 15:50:50,691 DEBUG navigating to url
+2021-09-18 15:50:50,694 INFO Exiting setup
