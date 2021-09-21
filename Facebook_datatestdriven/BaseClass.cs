@@ -12,6 +12,7 @@ using OpenQA.Selenium.Chrome;
 using System;
 using System.IO;
 using System.Reflection;
+using AutoItX3Lib;
 
 namespace Facebook_datatestdriven
 {
@@ -37,8 +38,10 @@ namespace Facebook_datatestdriven
             ChromeOptions options = new ChromeOptions();
                
                 options.AddArguments("--disable-notifications"); // to disable notification
+
                 //local selenium webdriver
                 driver = new ChromeDriver(options);
+
                 //To maximize the screen 
                 driver.Manage().Window.Maximize();
                 System.Threading.Thread.Sleep(200);
@@ -49,7 +52,6 @@ namespace Facebook_datatestdriven
             log.Info("Exiting setup");
 
         }
-
             [TearDown]
             public void TearDown()
             {
@@ -59,7 +61,7 @@ namespace Facebook_datatestdriven
         {
             ITakesScreenshot screenshotDriver = driver as ITakesScreenshot;
             Screenshot screenshot = screenshotDriver.GetScreenshot();
-            screenshot.SaveAsFile(@"C:\Users\sivaranjani.b\source\repos\Facebook_datatestdriven\Facebook_datatestdriven\Screenshot\text3.png");
+            screenshot.SaveAsFile(@"C:\Users\sivaranjani.b\source\repos\Facebook_datatestdriven\Facebook_datatestdriven\Screenshot\text8.png");
         }
     }
 }

@@ -19,10 +19,16 @@ namespace Facebook_datatestdriven
     {
         public static DataTable ExcelDataTable(string Filename)
         {
+            //To Open and Read the data in the file
             FileStream stream = File.Open(Filename, FileMode.Open, FileAccess.Read);
+            
+            //To encode the data
             Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
+            //To read the data from excel sheet 
             IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
+            //To create data set from data 
             DataSet resultSet = excelReader.AsDataSet(new ExcelDataSetConfiguration()
             {
                 ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
@@ -30,6 +36,8 @@ namespace Facebook_datatestdriven
                     UseHeaderRow = true
                 }
             }) ;
+
+            //Collection of datatable objects for the given dataset
             DataTableCollection table = resultSet.Tables;
             DataTable resultTable = table["Sheet1"];
             return resultTable;

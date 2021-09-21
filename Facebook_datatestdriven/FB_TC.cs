@@ -25,41 +25,45 @@ namespace Facebook_datatestdriven.Resources
     {
         ExtentReports reports = ReportClass.report();
         ExtentTest test;
-        [Test]
+        [Test,Order(0)]
        //Reading the data from the Excel file
         public void ReadingDataFromExcelFile()
         {
             test = reports.CreateTest("Tests");
             test.Log(Status.Info, "Automation FaceBook");
 
-            DoActions.LoginToFaceBook(driver);
+            DoActions.DoActions.LoginToFaceBook(driver);
             System.Threading.Thread.Sleep(10000);
             Takescreenshot();
             test.Log(Status.Pass, "Test Passes");
             reports.Flush();
             Takescreenshot();
 
-        }/*
-        [Test]
-
-        public void load_complete()
+        }
+        [Test,Order(1)]
+        public void HomePage()
         {
-            var wait = new WebDriverWait(driver, TimeSpan.FromMilliseconds(20));
-
-            // Wait for the page to load
-            if (wait.Until(d => ((IJavaScriptExecutor)d).ExecuteScript("return document.readyState").Equals("complete")))
-                
-            {
-                Console.WriteLine("Login Successful");
-                Takescreenshot();
-
-            }
-            else
-            {
-                Console.WriteLine("Login Failed");
-            }
+            test = reports.CreateTest("Tests");
+            test.Log(Status.Info, "Automation of FaceBook");
+            DoActions.DoActionHm.navigatehomepg(driver);
+            System.Threading.Thread.Sleep(2000);
             Takescreenshot();
-        }*/
+            test.Log(Status.Pass, "Test passes");
+            reports.Flush();
+            Takescreenshot();
+        }
+        [Test,Order(2)]
+        public void uploadpic()
+        {
+            test = reports.CreateTest("Tests");
+            test.Log(Status.Info, "Automating of FaceBook ");
+            DoActions.DoactionPostpage.PostPage(driver);
+            System.Threading.Thread.Sleep(2000);
+            Takescreenshot();
+            test.Log(Status.Pass, "Test passes");
+            reports.Flush();
+
+        }
     }
 }
 
