@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Facebook_datatestdriven
 {
-    class ReportClass
+    public class ReportClass
     {
         public static ExtentHtmlReporter htmlReporter;
         public static ExtentReports extent;
@@ -32,7 +32,8 @@ namespace Facebook_datatestdriven
 
                 string conifgPath = @"C:\Users\sivaranjani.b\source\repos\Facebook_datatestdriven\Facebook_datatestdriven\Report.xml";
                 htmlReporter.LoadConfig(conifgPath);
-
+                //String path = @"C:\Users\sivaranjani.b\source\repos\Facebook_datatestdriven\Facebook_datatestdriven\Screenshot\";
+                //BaseReport.OnScreenCaptureAddedfromPath(path);
             }
             return extent;
         }

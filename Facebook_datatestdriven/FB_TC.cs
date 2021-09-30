@@ -29,15 +29,15 @@ namespace Facebook_datatestdriven.Resources
        //Reading the data from the Excel file
         public void ReadingDataFromExcelFile()
         {
-            test = reports.CreateTest("Tests");
-            test.Log(Status.Info, "Automation FaceBook");
-
+           // test = reports.CreateTest("Tests");
+           // test.Log(Status.Info, "Automation FaceBook");
             DoActions.DoActions.LoginToFaceBook(driver);
-            System.Threading.Thread.Sleep(10000);
+            System.Threading.Thread.Sleep(1000);
             Takescreenshot();
-            test.Log(Status.Pass, "Test Passes");
-            reports.Flush();
-            Takescreenshot();
+           // test.Info("ScreenShot", MediaEntityBuilder.CreateScreenCaptureFromPath(@"C:\Users\sivaranjani.b\source\repos\Facebook_datatestdriven\Facebook_datatestdriven\Screenshot\text.png").Build());
+            //test.Log(Status.Pass, "Test Passes");
+           // reports.Flush();
+           
 
         }
         [Test,Order(1)]
@@ -60,9 +60,22 @@ namespace Facebook_datatestdriven.Resources
             DoActions.DoactionPostpage.PostPage(driver);
             System.Threading.Thread.Sleep(2000);
             Takescreenshot();
+           
             test.Log(Status.Pass, "Test passes");
             reports.Flush();
-
+        }
+        
+          /*[Test,Order(1)]
+            public void sendmail()
+           {
+               DoActions.DoActionsGM.EmailLogin(driver);
+           }*/
+       [Test, Order(3)]
+        public void Sendmail()
+        {
+            driver.Url = "https://accounts.google.com/ServiceLogin/identifier?";
+            Pages.MailPage.ReadDataFromExcel(driver);
+            Pages.MailPage.email_send(driver);
         }
     }
 }

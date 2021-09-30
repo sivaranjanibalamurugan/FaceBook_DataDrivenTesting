@@ -46,6 +46,7 @@ namespace Facebook_datatestdriven
                 driver.Manage().Window.Maximize();
                 System.Threading.Thread.Sleep(200);
                 driver.Url = "https://www.facebook.com/";
+           // driver.Url = "https://accounts.google.com/";
 
             log.Debug("navigating to url");
 
@@ -56,6 +57,8 @@ namespace Facebook_datatestdriven
             public void TearDown()
             {
                 driver.Quit();
+              //  String path = @"C:\Users\sivaranjani.b\source\repos\Facebook_datatestdriven\Facebook_datatestdriven\Screenshot\";
+              //BaseReport.OnScreenCaptureAddedfromPath(path);
             }
         public static void Takescreenshot()
         {

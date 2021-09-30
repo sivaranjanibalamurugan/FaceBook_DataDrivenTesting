@@ -16,7 +16,7 @@ namespace Facebook_datatestdriven.DoActions
             Pages.HomePage home = new Pages.HomePage(driver);
 
             //Entering the credentials for mail
-            home.mail.SendKeys("8667361462");
+            home.email.SendKeys("8667361462");
             System.Threading.Thread.Sleep(2000);
 
             //Entering credentials for password

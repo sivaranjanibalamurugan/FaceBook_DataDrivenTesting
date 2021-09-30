@@ -15,9 +15,9 @@ namespace Facebook_datatestdriven.Pages
             PageFactory.InitElements(driver, this);
         }
         //To locate the webelement 
-        [FindsBy(How = How.Name, Using = "email")]
+        [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[1]/form/div[1]/div[1]/input")]
         [CacheLookup]
-        public IWebElement mail;
+        public IWebElement email;
 
         [FindsBy(How = How.Id, Using = "pass")]
         [CacheLookup]
