@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Facebook_datatestdriven.DoActions;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using System;
@@ -13,25 +14,26 @@ namespace Facebook_datatestdriven.Pages
 {
     public class MailPage:BaseClass
     {
-        public static ExcelOperationForMail excel;
+        public static ExcelOperations excel;
         //Here we are reading the data from excel
         public static void ReadDataFromExcel(IWebDriver driver)
         {
-            excel = new ExcelOperationForMail();
-            excel.PopulateInCollection(@"C:\Users\sivaranjani.b\source\repos\Facebook_datatestdriven\Facebook_datatestdriven\Resources\FB_sendmail.xlsx");
+            excel = new ExcelOperations();
+            ExcelOperations.PopulateInCollection(@"C:\Users\sivaranjani.b\source\repos\Facebook_datatestdriven\Facebook_datatestdriven\Resources\FB_sendmail.xlsx");
         }
 
 
 
         public static void email_send(IWebDriver driver)
         {
-            excel = new ExcelOperationForMail();
+          
+            excel = new ExcelOperations();
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
             //we are sending our from mail id
-            mail.From = new MailAddress(excel.ReadData(1, "FromMail"));
+            mail.From = new MailAddress(ExcelOperations.ReadData(1, "FromMail"));
             //we are adding to mail id
-            mail.To.Add(excel.ReadData(1, "ToMail"));
+            mail.To.Add(ExcelOperations.ReadData(1, "ToMail"));
             //Subject of the mail is added
             mail.Subject = "FaceBook test mail";
             //Body of the mail is added
@@ -42,7 +44,7 @@ namespace Facebook_datatestdriven.Pages
             //here we attach the report of the automation
             mail.Attachments.Add(attachment);
             SmtpServer.Port = 587;
-            SmtpServer.Credentials = new NetworkCredential(excel.ReadData(1, "FromMail"), excel.ReadData(1, "Password"));
+            SmtpServer.Credentials = new NetworkCredential(ExcelOperations.ReadData(1, "FromMail"), ExcelOperations.ReadData(1, "Password"));
             SmtpServer.EnableSsl = true;
             //Here we click send mail 
             SmtpServer.Send(mail);

@@ -13,9 +13,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Facebook_datatestdriven
+namespace Facebook_datatestdriven.DoActions
 {
-    public class ExcelOperations
+    public class ExcelOperations:BaseClass
     {
         public static DataTable ExcelDataTable(string Filename)
         {
@@ -72,7 +72,7 @@ namespace Facebook_datatestdriven
         {
            try
            {
-                string data = (from colData in dataCol where colData.colName == columnName && colData.rowNumber == rowNumber select colData.colValue).SingleOrDefault();
+                string data = (from colData in dataCol where colData.colName == columnName && colData.rowNumber == rowNumber select colData.colValue).First();
                 return data.ToString();
            }
             catch (Exception e)
