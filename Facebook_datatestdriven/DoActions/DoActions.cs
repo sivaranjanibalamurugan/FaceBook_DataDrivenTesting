@@ -78,7 +78,7 @@ namespace Facebook_datatestdriven.DoActions
             }
             catch
             {
-                Console.WriteLine("Failed");
+                throw new CustomException(CustomException.ExceptionType.NoSuchElement, "No such element found"); 
             }
         }
         public static void PostPage(IWebDriver driver)
